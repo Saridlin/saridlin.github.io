@@ -1,0 +1,100 @@
+body, html{
+  margin: 0;
+  overflow-y: auto;
+  scrollbar-color: black;
+  color: rgb(255, 249, 234);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: url("images/popp.png"), default;
+}
+
+canvas {
+  position: fixed !important;
+}
+
+p {
+  padding-left: 20px;
+}
+
+h1{
+  padding-bottom: 0px;
+}
+
+.navbar ul li{
+  list-style: none;
+  padding-right:40px;
+  padding-bottom:30px;
+  float: right;
+  font-size: 20px;
+}
+
+.info {
+  position: fixed;
+  bottom: 0px;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: smaller;
+  background-color: rgba(0,0,0,0.2);
+}
+
+a:link {
+  color: #de8d47;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: rgb(140, 158, 62);
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(118, 70, 17);
+  cursor: url("images/popp.png"), default;
+}
+
+a{color: white;}
+
+.content img {
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0px 0;
+}
+
+.content div {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.center{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.center-text-block{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.noscriptmsg{
+	margin: 20px;
+}
