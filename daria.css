@@ -18,6 +18,11 @@ p {
 
 h1{
   padding-bottom: 0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h6{
+  color: #fac365;
 }
 
 .navbar ul li{
