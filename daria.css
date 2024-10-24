@@ -3,6 +3,7 @@ body, html{
   overflow-y: auto;
   scrollbar-color: black;
   color: rgb(255, 249, 234);
+  background-color: rgba(0,0,0,0.4);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: url("images/popp.png"), default;
 }
@@ -25,6 +26,7 @@ h1{
   padding-bottom:30px;
   float: right;
   font-size: 20px;
+  z-index: 6;
 }
 
 .info {
