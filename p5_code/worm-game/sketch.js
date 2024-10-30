@@ -36,7 +36,9 @@ let ox; //orange position x
 let oy; //orange position y
 let isCodeWorking = true;
 let orangeBlue = false;
-let pearPink = false;
+let aPrompt = false;
+let oPrompt = false;
+let pPrompt = false;
 
 function preload() {
     img = loadImage("assets/apple.png");
@@ -51,7 +53,7 @@ function preload() {
 
 function setup() {
 
-    cSize = 400;
+    cSize = 800;
     createCanvas(cSize, cSize);
     noStroke();
     background(255);
@@ -62,7 +64,7 @@ function setup() {
     wG = 174;
     wB = 144;
 
-    gridSize = 20;
+    gridSize = 40;
     grid = cSize/gridSize;
     qGZ = gridSize/4;
     n = "NOM!";
@@ -101,18 +103,14 @@ function draw() {
             //press 0, reset fruit colors
             img = appRed;
             orangeBlue = false;
-            pearPink = false;
         } else if (keyCode == 49){
             //press 1, apple is Green
             img = appGreen;
         } else if (keyCode == 50){
             //press 2, tint orange blue boolean true
+            if (orange)
             orangeBlue = true;
             console.log("blue");
-        } else if (keyCode == 51){
-            //press 3, tint pear pink boolean true
-            pearPink = true;
-            console.log("pink");
         }
     
         keyCode = null;
@@ -126,21 +124,11 @@ function draw() {
             image(orangeImg, ox, oy, gridSize, gridSize);
             noTint();
             colorMode(RGB);
-        } else if (pearPink) {
-            image(img, ax, ay, gridSize, gridSize);
-            tint(237, 95, 221);
-            image(pearImg, px, py, gridSize, gridSize);
-            noTint();
-            image(imgO, ox, oy, gridSize, gridSize);
         } else {
             image(img, ax, ay, gridSize, gridSize);
             image(imgP, px, py, gridSize, gridSize);
             image(imgO, ox, oy, gridSize, gridSize);
         }
-    }
-
-    if (mouseIsPressed){
-        console.log("Is Code Working?: " + isCodeWorking);
     }
 
 }
@@ -221,13 +209,15 @@ function checkFruit(){
         image(img, ax, ay, gridSize, gridSize);
         appleSteps = 0;
         apple++;
+        aPrompt = false;
 
         fill(20);
         text(n, randomPos(), randomPos());
         console.log(ax + ", " + ay);
-    } else if (appleSteps > 30 || appleSteps < 0){
+    } else if (appleSteps > 20 && !aPrompt){
         fill(20);
         text(hgA, randomPos(), randomPos());
+        aPrompt = true;
     }
 
     if (cx == px && cy == py){
@@ -237,13 +227,15 @@ function checkFruit(){
         image(imgP, px, py, gridSize, gridSize);
         pearSteps = 0;
         pear++;
+        pPrompt = false;
 
         fill(20);
         text(n, randomPos(), randomPos());
         console.log(px + ", " + py);
-    } else if (pearSteps > 30 || pearSteps <= 0){
+    } else if (pearSteps > 20 && !pPrompt){
         fill(20);
         text(hgP, randomPos(), randomPos());
+        pPrompt = true;
     }
 
     if (cx == ox && cy == oy){
@@ -253,13 +245,15 @@ function checkFruit(){
         image(imgO, ox, oy, gridSize, gridSize);
         orangeSteps = 0;
         orange++;
+        oPrompt = false;
 
         fill(20);
         text(n, randomPos(), randomPos());
         console.log(ox + ", " + oy);
-    } else if (orangeSteps >= 30){
+    } else if (orangeSteps > 20 && !oPrompt){
         fill(20);
         text(hgO, randomPos(), randomPos());
+        oPrompt = true;
     }
 }
 
@@ -270,19 +264,11 @@ function checkFade(){
     }
 }
 
-function mouseMoved(){
+function mousePressed(){
     wR = random(250) + 2;
     wG = random(250) + 2;
     wB = random(250) + 2;
     console.log("Worm color set: random" + "\nRGB Value of: " + wR + ", " + wG + ", " + wB);
-}
-
-function keyPressed(){
-    console.log("Key was pressed.");
-}
-
-function mousePressed(){
-    console.log("Mouse was pressed.");
 }
 
 function randomPos(){

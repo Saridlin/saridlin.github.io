@@ -6,9 +6,7 @@ let angle = 360/symmetry;
 let rot = 0;
 let squish;
 
-counter = 1;
-
-let bloom = new Array(10)
+let bloom = new Array(10);
 
 function windowResized(){
   resizeCanvas(windowWidth,windowHeight);
@@ -18,16 +16,10 @@ function setup(){
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0);
   canvas.style('z-index', '-1');
-  //background(20);
   
   angleMode(DEGREES);
 
   for (let i = 0; i < bloom.length; i++){
-    /*
-    TO DO
-    Off set the positions by using i * each "row" of canvas height and column
-    Pseudo grid-like behavior
-    */
     bloom[i] = new Bloom(random(canvas.width), random(canvas.height), random(0.5,1.5), random(5)*200);
   }
 }
@@ -65,8 +57,8 @@ class Bloom{
   display(){
 
     push();
-    let w = canvas.width/20 + (10*cos(frameCount))
-    let h = canvas.height/10
+    let w = canvas.width/20 + (10*cos(frameCount));
+    let h = canvas.height/10;
 
     translate(this.lx, this.ly);
     scale(sin(this.offset*0.15)*this.sc);
@@ -93,8 +85,8 @@ class Bloom{
       arc(0,0, canvas.width/20*(squish),canvas.height/12, QUARTER_PI, HALF_PI+QUARTER_PI);
       angleMode(DEGREES);
 
-      noStroke()
-      fill(100, 138, 47)
+      noStroke();
+      fill(100, 138, 47);
       rect(canvas.width/20,canvas.width/20,10,10,30,30,0,30);
     }
     pop();

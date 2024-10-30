@@ -5,7 +5,7 @@ body, html{
   color: rgb(255, 249, 234);
   background-color: rgba(0,0,0,0.4);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  cursor: url("images/popp.png"), default;
+  cursor: url("images/leaf.png"), default;
 }
 
 body::-webkit-scrollbar {
@@ -65,13 +65,20 @@ h7 {
 
 .info {
   position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
   bottom: 0px;
-  padding-left: 20px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   font-size: smaller;
   background-color: rgba(0,0,0,0.2);
+  padding-right: 10px;
+}
+
+.info ul li{
+  list-style: none;
+  display: inline-block;
+  padding-right: 5px;
+  vertical-align: middle;
 }
 
 .grid {
@@ -88,6 +95,7 @@ h7 {
 a:link {
   color: #de8d47;
   text-decoration: none;
+  cursor: url("images/leaf-fall.png"), default;
 }
 
 a:visited {
@@ -98,7 +106,7 @@ a:visited {
 a:hover {
   text-decoration: none;
   color: rgb(118, 70, 17);
-  cursor: url("images/popp.png"), default;
+  cursor: url("images/leaf-fall.png"), default;
 }
 
 a{color: white;}
