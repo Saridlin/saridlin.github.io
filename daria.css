@@ -81,6 +81,24 @@ h7 {
   vertical-align: middle;
 }
 
+.credit {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+  bottom: 0px;
+  font-size: smaller;
+  background-color: rgba(0,0,0,0.2);
+  padding-right: 10px;
+}
+
+.credit ul li{
+  list-style: none;
+  display: inline-block;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
 .grid {
   font-size: 25px;
   font-style: italic;

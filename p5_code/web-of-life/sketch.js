@@ -12,13 +12,14 @@ let rot = 0;
 let squish;
 
 let recMode = false;
+let play = false;
 
 function setup(){
   canvas = createCanvas(1920, 1080);
 
   colorMode(HSB);
   angleMode(DEGREES);
-  frameRate(4);
+  //frameRate(4);
   noLoop();
 
   flock = new doFlock();
@@ -113,6 +114,17 @@ function draw(){
     flock.run();
   }
 
+  if (frameCount < 2700){
+    if (key == ' '){
+      describe('Animation Playing.', LABEL);
+    } else {
+      describe('Animation Stopped.', LABEL );
+    }
+  } else if (frameCount > 2800){
+    describe('Animation Complete.', LABEL);
+    noLoop();
+  }
+
   recordit();
 }
 
@@ -182,15 +194,16 @@ function keyPressed() {
       console.log("k is " + k);
 
       if (k == 's' || k == 'S') {
-          console.log("Stopped Recording");
-          recMode = false;
+          //console.log("Stopped Recording");
+          //recMode = false;
           noLoop();
       }
 
       if (k == ' ') {
-          console.log("Start Recording");
-          recMode = true;
+          //console.log("Start Recording");
+          //recMode = true;
           loop();
+          play = true;
       }
   }
 }
